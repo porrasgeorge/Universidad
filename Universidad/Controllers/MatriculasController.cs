@@ -26,6 +26,7 @@ namespace Universidad.Controllers
 
             var lista = ListaMatriculadas.Join(ListaMaterias, mat => mat.Idmateria, matricDetail => matricDetail.Idmateria, (mat, matricDetail) => new { mat, matricDetail});
 
+            ViewBag.ListadeMaterias = ListaMaterias.ToList();
             ViewBag.Conteo = lista.Count();
             ViewBag.Total = lista.Select(x => x.matricDetail.Precio).Sum();
 
