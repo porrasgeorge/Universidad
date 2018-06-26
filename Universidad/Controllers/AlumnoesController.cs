@@ -21,7 +21,12 @@ namespace Universidad.Controllers
         // GET: Alumnoes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Alumno.ToListAsync());
+            // Mostrar solo los que estan referenciados en la tabla de matricula
+            var idList = _context.Matricula.Select(m => m.Idalumno).ToList();
+            //   return View(await _context.Alumno.Where(x => idList.Select(m => m.Idalumno).Contains(x.Idalumno)).ToListAsync());
+            return View(await _context.Alumno.Where(x => idList.Contains(x.Idalumno)).ToListAsync());
+
+            
         }
 
         // GET: Alumnoes/Details/5

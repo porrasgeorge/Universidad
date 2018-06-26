@@ -50,11 +50,11 @@ namespace Universidad.Controllers
         public IActionResult Create()
         {
             //ViewData["Idalumno"] = new SelectList(_context.Alumno, "Idalumno", "Idalumno");
-            //ViewBag.CatalogoAlumnos = _context.Alumno.Where(x=>x.Idalumno==1).ToList();
-            ViewBag.CatalogoAlumnos = _context.Alumno.ToList();
             //ViewData["Idmateria"] = new SelectList(_context.Materia, "Idmateria", "Idmateria");
-            ViewBag.CatalogoMaterias = _context.Materia.ToList();
             //ViewData["Idprofesor"] = new SelectList(_context.Profesor, "Idprofesor", "Idprofesor");
+
+            ViewBag.CatalogoAlumnos = _context.Alumno.ToList();
+            ViewBag.CatalogoMaterias = _context.Materia.Where(x => x.Estado == 1).ToList();
             ViewBag.CatalogoProfesores = _context.Profesor.ToList();
 
             return View();
