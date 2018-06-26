@@ -53,7 +53,7 @@ namespace Universidad.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Idmateria,Nombre,Estado")] Materia materia)
+        public async Task<IActionResult> Create([Bind("Idmateria,Nombre,Estado,Precio")] Materia materia)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace Universidad.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Idmateria,Nombre,Estado")] Materia materia)
+        public async Task<IActionResult> Edit(int id, [Bind("Idmateria,Nombre,Estado,Precio")] Materia materia)
         {
             if (id != materia.Idmateria)
             {

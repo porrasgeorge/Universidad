@@ -21,6 +21,14 @@ namespace Universidad.Controllers
         // GET: Matriculas
         public async Task<IActionResult> Index()
         {
+            var ListaMaterias = _context.Materia;
+            var ListaMatriculadas = _context.Matricula;
+
+            var lista = ListaMatriculadas.Join(ListaMaterias, mat => mat.Idmateria, matricDetail => matricDetail.Idmateria, (mat, matricDetail) => new { mat, matricDetail});
+
+            ViewBag.Conteo = lista.Count();
+            ViewBag.Total = lista.Select(x => x.matricDetail.Precio).Sum();
+
             var pARCIALDBContext = _context.Matricula.Include(m => m.IdalumnoNavigation).Include(m => m.IdmateriaNavigation).Include(m => m.IdprofesorNavigation);
             return View(await pARCIALDBContext.ToListAsync());
         }

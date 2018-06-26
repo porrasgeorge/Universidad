@@ -5,12 +5,27 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Materias\**" />
+    <Content Remove="Views\Materias\**" />
+    <EmbeddedResource Remove="Views\Materias\**" />
+    <None Remove="Views\Materias\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
   </ItemGroup>
 
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Materias\Create.cshtml" />
+    <None Include="Views\Materias\Delete.cshtml" />
+    <None Include="Views\Materias\Details.cshtml" />
+    <None Include="Views\Materias\Edit.cshtml" />
+    <None Include="Views\Materias\Index.cshtml" />
   </ItemGroup>
 
 </Project>
